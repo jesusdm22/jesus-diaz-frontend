@@ -1,0 +1,11 @@
+<header>
+  <h1>Hey! Bienvenid@ :)</h1>
+  <h2>Busqueda de usuarios dentro de la API de GitHub</h2>
+</header>
+
+<main>
+  <div class="search-container">
+    <input type="text" placeholder="Buscar usuarios..." id="inputText" [(ngModel)]="inputText">
+  </div>
+  <app-table [inputText]="inputText"></app-table>
+</main>

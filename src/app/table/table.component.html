@@ -1,0 +1,19 @@
+<p *ngIf="inputText">Término de búsqueda: {{inputText}}</p>
+<p *ngIf="!inputText">Listado general de usuarios</p>
+<div class="profile" *ngFor="let user of users" (click)="openModal(user)">
+  <img src="{{user.avatar_url}}" alt="{{user.login}}" width="100" height="100" draggable="false">
+  <div class="profile-info">
+    <h2 *ngIf="user.name">{{user.name}}</h2>
+    <h2 *ngIf="user.login && !user.name">{{user.login}}</h2>
+    <small> @{{user.login}}</small>
+    <p>Siguiendo: {{user.following}}</p>
+    <p>Seguidores: {{user.followers}}</p>
+  </div>
+</div>
+
+<app-user-detail [showModal]="showModal" (closeModalEvent)="onCloseModal()" [user]="user"></app-user-detail>
+
+
+<div class="overlay center-overlay" *ngIf="loading">
+    <div class="spinner"></div>
+</div>

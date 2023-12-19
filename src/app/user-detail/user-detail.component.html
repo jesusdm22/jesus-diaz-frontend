@@ -1,0 +1,19 @@
+<div class="modal-background" [ngStyle]="{'display': showModal ? 'flex' : 'none'}" *ngIf="user">
+    <div class="modal-content">
+      <div class="user-profile">
+        <div class="header">
+          <img class="profile-picture" src="{{user.avatar_url}}" alt="Foto de perfil">
+          <div class="user-info">
+            <h1>@{{user.login}}</h1>
+            <p>{{user.followers}} seguidores</p>
+            <p>Ubicado en: {{user.location}} </p>
+            <p>{{user.email}}</p>
+            <p>Repositorios: {{user.public_repos}}</p>
+          </div>
+        </div>
+        <!-- Agrega más secciones según sea necesario (por ejemplo, sección de repositorios, actividades, etc.) -->
+      </div>
+      <button (click)="closeModal()" class="modal-button">Cerrar</button>
+      <button (click)="redirect(user.html_url)" class="modal-button-blue">Ver en GitHub</button>
+    </div>
+  </div>
